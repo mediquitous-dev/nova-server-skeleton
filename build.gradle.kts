@@ -36,7 +36,6 @@ dependencies {
 	implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
 	implementation("org.jetbrains.kotlin:kotlin-reflect")
 
-	// MapStruct는 Lombok의 getter, setter, builder를 이용하여 생성되므로 Lombok보다 먼저 dependency가 선언 되는 경우 정상적으로 실행할 수 없습니다.
 	implementation("org.mapstruct:mapstruct:1.5.5.Final")
 
 	implementation("org.springframework.kafka:spring-kafka")
