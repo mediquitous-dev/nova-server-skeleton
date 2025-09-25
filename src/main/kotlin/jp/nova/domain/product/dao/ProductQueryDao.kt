@@ -2,11 +2,13 @@ package jp.nova.domain.product.dao
 
 import jp.nova.domain.product.entity.Product
 import jp.nova.repository.product.ProductRepository
+import org.springframework.stereotype.Repository
 
+@Repository
 class ProductQueryDao(
-    val productRepository: ProductRepository,
+	val productRepository: ProductRepository,
 ) {
-    fun findById(id: Long): Product = productRepository.findById(id)
+	fun findById(id: Long): Product = productRepository.findById(id)
 
-    fun findAll(): List<Product> = productRepository.findAll()
+	fun findAll(): List<Product> = productRepository.findAll()
 }
