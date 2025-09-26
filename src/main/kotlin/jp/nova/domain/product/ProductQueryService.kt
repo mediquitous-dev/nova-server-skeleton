@@ -8,9 +8,9 @@ import org.springframework.transaction.annotation.Transactional
 @Transactional(readOnly = true)
 @Service
 class ProductQueryService(
-	val productQueryDao: ProductQueryDao,
+    val productQueryDao: ProductQueryDao,
 ) {
-	fun findById(id: Long): Product = productQueryDao.findById(id)
+    fun findById(id: Long): Product = productQueryDao.findById(id)
 
-	fun findAll(): List<Product> = productQueryDao.findAll()
+    fun findAll(): List<Product> = productQueryDao.findAll()
 }

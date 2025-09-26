@@ -8,5 +8,5 @@ import org.springframework.boot.runApplication
 class NovaSkeletonApplication
 
 fun main(args: Array<String>) {
-	runApplication<NovaSkeletonApplication>(*args)
+    runApplication<NovaSkeletonApplication>(*args)
 }
