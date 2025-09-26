@@ -1,13 +1,15 @@
 package jp.nova.application.product
 
+import jp.nova.api.product.dto.ProductRes
 import jp.nova.application.product.mapper.ProductMapper
 import jp.nova.domain.product.ProductQueryService
-import jp.nova.api.product.dto.ProductRes
 import org.mapstruct.factory.Mappers
+import org.springframework.stereotype.Service
 import java.util.stream.Collectors
 
+@Service
 class ProductApplication(
-    val productQueryService: ProductQueryService,
+    private val productQueryService: ProductQueryService,
 ) {
     val converter = Mappers.getMapper(ProductMapper::class.java)
 
@@ -16,7 +18,6 @@ class ProductApplication(
         val product = productQueryService.findById(id)
         val productRes = converter.toRes(product)
 
-        // return ProductRes.of(product.id!!, product.productName, product.price)
         return productRes
     }
 
@@ -24,9 +25,7 @@ class ProductApplication(
         val products = productQueryService.findAll()
         return products
             .stream()
-            .map { product -> converter.to(product) }
+            .map { product -> product.let { converter.toRes(it) } }
             .collect(Collectors.toList()) as List<ProductRes>
-
-        // return ProductRes.of(product.id!!, product.productName, product.price)
     }
 }

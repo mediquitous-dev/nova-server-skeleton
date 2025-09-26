@@ -1,7 +1,7 @@
 package jp.nova.application.product.mapper
 
-import jp.nova.domain.product.entity.Product
 import jp.nova.api.product.dto.ProductRes
+import jp.nova.domain.product.entity.Product
 import org.mapstruct.Mapper
 import org.mapstruct.Mapping
 

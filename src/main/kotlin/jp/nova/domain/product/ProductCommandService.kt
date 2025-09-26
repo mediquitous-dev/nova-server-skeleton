@@ -1,4 +1,6 @@
 package jp.nova.domain.product
 
-// @Transactional(readOnly = false)
+import org.springframework.transaction.annotation.Transactional
+
+@Transactional(readOnly = false)
 class ProductCommandService

@@ -1,1 +1,3 @@
-spring.application.name=nova-skeleton
+spring:
+    application:
+        name: nova-skeleton

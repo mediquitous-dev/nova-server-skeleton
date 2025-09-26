@@ -1,3 +1,5 @@
+import org.jlleitschuh.gradle.ktlint.reporter.ReporterType
+
 plugins {
     kotlin("jvm") version "2.2.10"
     kotlin("plugin.spring") version "2.2.10"
@@ -20,6 +22,12 @@ val grpcVersion = "3.19.4"
 val grpcKotlinVersion = "2.2.10"
 val grpcProtoVersion = "1.44.1"
 
+ktlint {
+    reporters {
+        reporter(ReporterType.JSON)
+    }
+}
+
 java {
     toolchain {
         languageVersion = JavaLanguageVersion.of(21)
@@ -36,7 +44,6 @@ dependencies {
     implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
     implementation("org.jetbrains.kotlin:kotlin-reflect")
 
-    // MapStruct는 Lombok의 getter, setter, builder를 이용하여 생성되므로 Lombok보다 먼저 dependency가 선언 되는 경우 정상적으로 실행할 수 없습니다.
     implementation("org.mapstruct:mapstruct:1.5.5.Final")
 
     implementation("org.springframework.kafka:spring-kafka")
@@ -46,8 +53,8 @@ dependencies {
     kaptTest("org.mapstruct:mapstruct-processor:1.5.5.Final")
 
     testImplementation("org.springframework.boot:spring-boot-starter-test")
-    testImplementation("io.kotest:kotest-runner-junit5-jvm:$kotestVersion")
-    testImplementation("io.kotest:kotest-assertions-core-jvm:$kotestVersion")
+    testImplementation("io.kotest:kotest-runner-junit5:$kotestVersion")
+    testImplementation("io.kotest:kotest-assertions-core:$kotestVersion")
 
     // slf4j 비효율 개선
     implementation("io.github.oshai:kotlin-logging-jvm:5.1.1")
