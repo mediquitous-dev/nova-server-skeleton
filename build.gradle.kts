@@ -53,7 +53,6 @@ dependencies {
     kaptTest("org.mapstruct:mapstruct-processor:1.5.5.Final")
 
     testImplementation("org.springframework.boot:spring-boot-starter-test")
-    // JVM 접미사 제거 (멀티플랫폼이 아니므로)
     testImplementation("io.kotest:kotest-runner-junit5:$kotestVersion")
     testImplementation("io.kotest:kotest-assertions-core:$kotestVersion")
 
